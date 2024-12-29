@@ -6,6 +6,10 @@
     <title>Vivace Design Studio - Architecture | Interiors</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><!--Link to google Font-->
     <link rel="shortcut icon" href="imgSrc/Logo_JPEG.jpeg" type="image/x-icon"> <!--Link to Favicon: stored in imgSrc-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"><!--Bootstrap5 link-->
@@ -14,6 +18,135 @@
         a:hover{color: #ac7e31 !important;;text-decoration:none;}
         a:active{color:#ac7e31 !important;text-decoration:none;}
         a:visited{color:black;text-decoration:none;}
+         /* General Responsive Styles */
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Navbar Adjustments */
+            @media (max-width: 768px) {
+                .navbar-brand img {
+                    width: 50px;
+                    height: auto;
+                }
+
+                .navbar-collapse {
+                    justify-content: space-between;
+                }
+
+                .navbar-nav {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    text-align: center;
+                }
+
+                .nav-link {
+                    font-size: 16px;
+                    margin-bottom: 5px;
+                }
+            }
+
+            /* About Section */
+            @media (max-width: 768px) {
+                #About_Architects {
+                    padding: 20px;
+                    text-align: center;
+                }
+
+                #About_Architects img {
+                    width: 150px;
+                    height: 150px;
+                    margin: 0 auto;
+                }
+
+                #About_Architects-MainCard {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                #About_Architects-AboutArchitects {
+                    font-size: 14px;
+                }
+            }
+
+            /* Services Section */
+            @media (max-width: 768px) {
+                #services .col-md-3 {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    margin-bottom: 20px;
+                }
+
+                #services img {
+                    width: 80%;
+                    margin: 0 auto;
+                    display: block;
+                }
+
+                #services h3 {
+                    font-size: 16px;
+                    margin-top: 10px;
+                }
+            }
+
+            /* Projects Section */
+            @media (max-width: 768px) {
+                #projects .col-md-4 {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    margin-bottom: 20px;
+                }
+
+                #projects img {
+                    width: 90%;
+                    margin: 0 auto;
+                    display: block;
+                }
+            }
+
+            /* Contact Us Section */
+            @media (max-width: 768px) {
+                #Contact_Us {
+                    flex-direction: column;
+                    padding: 20px;
+                }
+
+                #Contact_Us img {
+                    width: 90%;
+                    margin-bottom: 20px;
+                }
+
+                #Contact_Us form {
+                    width: 100%;
+                }
+
+                #experience-badge {
+                    bottom: -30px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 100px;
+                    height: 100px;
+                    font-size: 12px;
+                }
+            }
+
+            /* Footer Section */
+            @media (max-width: 768px) {
+                footer {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                footer .col-md-4 {
+                    margin-bottom: 20px;
+                }
+
+                footer ul {
+                    justify-content: center;
+                }
+            }
+
       </style>
 </head>
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #ffffff; height: 100vh;">
@@ -163,40 +296,41 @@
     <!--Projects Ends-->
 
 
-    <!--Contact us Starts-->
-        <div id="Contact_Us" class="container" style="position: relative; padding-bottom: 100px;"> <!-- Add relative positioning -->
-            <section style="display: flex; align-items: center; justify-content: center; padding: 50px; gap: 30px;">
+   <!-- Contact Us Starts -->
+        <div id="Contact_Us" class="container" style="position: relative; padding: 50px 20px; margin-top: 50px;">
+            <section style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 30px; position: relative;">
                 <!-- Left: Image -->
-                <div>
-                    <img src="imgSrc/blueprint_png.png" alt="Blueprint Image" style="max-width: 100%; border-radius: 5px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                <div style="flex: 1 1 300px; max-width: 400px; text-align: center; position: relative;">
+                    <img src="imgSrc/blueprint_png.png" alt="Blueprint Image" style="width: 100%; border-radius: 5px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+
+                    <!-- Experience Badge -->
+                    <div id="experience-badge" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #ac7e31; color: white; width: 100px; height: 100px; border-radius: 50%; font-size: 1.2rem; font-weight: bold; position: absolute; bottom: 10px; right: 0px;">
+                        <div>05</div>
+                        <div style="font-size: 0.9rem; font-weight: normal; text-align: center;">Years Experienced</div>
+                    </div>
                 </div>
-        
+
                 <!-- Right: Contact Form -->
-                <div style="max-width: 600px; background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
-                    <h2 style="font-size: 2rem; color: #333; margin-bottom: 20px;">Schedule a consultation</h2>
+                <div style="flex: 1 1 400px; max-width: 600px; background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
+                    <h2 style="font-size: 1.8rem; color: #333; margin-bottom: 20px; text-align: center;">Schedule a consultation</h2>
                     <form>
                         <div class="row mb-3">
-                            <div class="col">
+                            <div class="col-12 col-md-6">
                                 <input type="text" placeholder="Full Name *" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
                             </div>
-                            <div class="col">
+                            <div class="col-12 col-md-6">
                                 <input type="tel" placeholder="Phone Number *" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
                             </div>
                         </div>
                         <input type="email" placeholder="Email Address *" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
                         <input type="text" placeholder="Subject" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
                         <textarea placeholder="Message Details" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; height: 150px;"></textarea>
-                        <button type="submit" style="background-color: #333; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; text-transform: uppercase;">Submit</button>
+                        <button type="submit" style="background-color: #333; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; text-transform: uppercase; width: 100%;">Submit</button>
                     </form>
                 </div>
             </section>
-        
-            <!-- Experience Badge -->
-            <div id="experience-badge" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #ac7e31; color: white; width: 150px; height: 150px; border-radius: 50%; font-size: 1.5rem; font-weight: bold; position: absolute; bottom: 130px; left: 53%; transform: translateX(-50%);">                <div>05</div>
-                <div style="font-size: 0.9rem; font-weight: normal;">Years Experienced.</div>
-            </div>
         </div>
-    <!--Contact us Ends-->
+    <!-- Contact Us Ends -->
 
     <!-- footer Starts -->
     <div class="container">
@@ -233,6 +367,11 @@
     </div>
     <!--Footer Ends-->
 
+    <!-- Designed by Vishal -->
+    <div style="font-family: 'Pacifico', serif; font-weight: 400; font-style: inherit; position: fixed; bottom: 10px; right: 10px; text-align: right; font-size: 0.7rem; color: #ac7e31;">            
+        <a href="https://www.linkedin.com/in/vishal-setty/" style="color: #555; text-decoration: none; font-style: inherit;">Designed to inspire by Vishal.</a>❤️
+    </div>
+
     <!--Javascript starts-->
     <script>
             document.addEventListener("DOMContentLoaded", () => {
@@ -257,6 +396,7 @@
             // Update the active link on page load
             updateActiveLink();
             });
+
             function adjustBadgeStyles() {
                 const badge = document.getElementById("experience-badge");
 
