@@ -313,19 +313,19 @@
                 <!-- Right: Contact Form -->
                 <div style="flex: 1 1 400px; max-width: 600px; background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
                     <h2 style="font-size: 1.8rem; color: #333; margin-bottom: 20px; text-align: center;">Schedule a consultation</h2>
-                    <form>
+                    <form id="consultationForm">
                         <div class="row mb-3">
                             <div class="col-12 col-md-6">
-                                <input type="text" placeholder="Full Name *" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+                                <input type="text" id="fullName" placeholder="Full Name *" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
                             </div>
                             <div class="col-12 col-md-6">
-                                <input type="tel" placeholder="Phone Number *" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+                                <input type="tel" id="phoneNumber" placeholder="Phone Number *" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
                             </div>
                         </div>
-                        <input type="email" placeholder="Email Address *" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
-                        <input type="text" placeholder="Subject" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
-                        <textarea placeholder="Message Details" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; height: 150px;"></textarea>
-                        <button type="submit" style="background-color: #333; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; text-transform: uppercase; width: 100%;">Submit</button>
+                        <input type="email" id="email" placeholder="Email Address *" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+                        <input type="text" id="subject" placeholder="Subject" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+                        <textarea id="message" placeholder="Message Details" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; height: 150px;"></textarea>
+                        <button type="button" onclick="sendWhatsAppMessage()" style="background-color: #333; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; text-transform: uppercase; width: 100%;">Submit</button>
                     </form>
                 </div>
             </section>
@@ -421,6 +421,39 @@
             // Adjust styles on load and on resize
             window.addEventListener("resize", adjustBadgeStyles);
             window.addEventListener("DOMContentLoaded", adjustBadgeStyles);
+
+            function sendWhatsAppMessage() {
+                console.log("Button clicked!");
+                // Get input values
+                const fullName = document.getElementById("fullName").value.trim();
+                const phoneNumber = document.getElementById("phoneNumber").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const subject = document.getElementById("subject").value.trim();
+                const message = document.getElementById("message").value.trim();
+
+                // Validate fields (optional but recommended)
+                if (!fullName || !phoneNumber || !email) {
+                    alert("Please fill in all required fields.");
+                    return;
+                }
+
+                // Construct the WhatsApp message
+                const whatsappMessage = `Hello! You have a new consultation request:\n` +
+                `   *Name:* ${fullName || "N/A"}\n` +
+                `   *Phone Number:* ${phoneNumber || "N/A"}\n` +
+                `   *Email:* ${email || "N/A"}\n` +
+                `   *Subject:* ${subject || "N/A"}\n` +
+                `   *Message Details:* ${message || "N/A"}`;
+
+                // Replace with the owner's WhatsApp number (international format, without spaces or special characters)
+                const ownerPhoneNumber = "9513099880";
+
+                // Generate the WhatsApp link
+                const whatsappURL = `https://wa.me/${ownerPhoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+                // Redirect to WhatsApp
+                window.open(whatsappURL, "_blank");
+            }
     </script>
     <!--Javascript Ends-->
 </body>
