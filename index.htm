@@ -424,7 +424,7 @@
 
             function sendWhatsAppMessage() {
                 console.log("Button clicked!");
-                
+
                 // Get input values
                 const fullName = document.getElementById("fullName").value.trim();
                 const phoneNumber = document.getElementById("phoneNumber").value.trim();
@@ -432,7 +432,7 @@
                 const subject = document.getElementById("subject").value.trim();
                 const message = document.getElementById("message").value.trim();
 
-                // Validate fields (optional but recommended)
+                // Validate fields
                 if (!fullName || !phoneNumber || !email) {
                     alert("Please fill in all required fields.");
                     return;
@@ -446,15 +446,16 @@
                     `   *Subject:* ${subject || "N/A"}\n` +
                     `   *Message Details:* ${message || "N/A"}`;
 
-                // List of recipient numbers (International format, without spaces or special characters)
-                const recipientNumbers = ["7411073058", "7411073045"]; // Replace with actual numbers
+                // Your WhatsApp group invite link
+                const groupInviteLink = "https://chat.whatsapp.com/GvIuACJvlhL2Mwz3gqv9sI"; // Use your group invite link
 
-                // Open WhatsApp for each recipient
-                recipientNumbers.forEach(number => {
-                    const whatsappURL = `https://wa.me/${number}?text=${encodeURIComponent(whatsappMessage)}`;
-                    window.open(whatsappURL, "_blank");
-                });
+                // Redirect to WhatsApp group with pre-filled message
+                const whatsappURL = `${groupInviteLink}?text=${encodeURIComponent(whatsappMessage)}`;
+
+                // Open WhatsApp
+                window.open(whatsappURL, "_blank");
             }
+
 
     </script>
     <!--Javascript Ends-->
