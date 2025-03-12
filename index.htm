@@ -446,14 +446,21 @@
                     `   *Subject:* ${subject || "N/A"}\n` +
                     `   *Message Details:* ${message || "N/A"}`;
 
-                // Your WhatsApp group invite link
-                const groupInviteLink = "https://chat.whatsapp.com/GvIuACJvlhL2Mwz3gqv9sI"; // Use your group invite link
+                // Replace with the two recipient phone numbers
+                const phoneNumber1 = "7411073058"; // First number (User sees this)
+                const phoneNumber2 = "7411073045"; // Second number (Hidden)
 
-                // Redirect to WhatsApp group with pre-filled message
-                const whatsappURL = `${groupInviteLink}?text=${encodeURIComponent(whatsappMessage)}`;
+                // Open first WhatsApp chat (Visible to the user)
+                const whatsappURL1 = `https://wa.me/${phoneNumber1}?text=${encodeURIComponent(whatsappMessage)}`;
+                window.location.href = whatsappURL1; // Redirects user to this chat
 
-                // Open WhatsApp
-                window.open(whatsappURL, "_blank");
+                // Open second WhatsApp chat (Hidden in an iframe)
+                setTimeout(() => {
+                    const iframe = document.createElement("iframe");
+                    iframe.style.display = "none"; // Hide the iframe
+                    iframe.src = `https://wa.me/${phoneNumber2}?text=${encodeURIComponent(whatsappMessage)}`;
+                    document.body.appendChild(iframe);
+                }, 2000); // Delay to avoid any UI lag
             }
 
 
